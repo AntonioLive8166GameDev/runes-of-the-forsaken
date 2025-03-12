@@ -1,6 +1,10 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed : int = 100
+@export var hp : int = 100
+@export var defense : int = 100
+@export var atk : int = 50
 
 
 func _process(_delta: float) -> void:

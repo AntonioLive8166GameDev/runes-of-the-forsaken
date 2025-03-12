@@ -25,6 +25,10 @@ window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[global_group]
+
+player="Playable characters"
+
 [input]
 
 up={
