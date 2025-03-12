@@ -16,4 +16,3 @@ func motion() -> void:
 	velocity.x = GLOBAL.get_axis().x * speed
 	velocity.y = GLOBAL.get_axis().y * -speed
 	move_and_slide()
-	
