@@ -25,6 +25,14 @@ window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="viewport"
 
+[file_customization]
+
+folder_colors={
+"res://resourses/": "red",
+"res://scenes/": "orange",
+"res://scripts/": "yellow"
+}
+
 [global_group]
 
 player="Playable characters"
