@@ -223,3 +223,6 @@ tile_map_data = PackedByteArray("AAApABsAAAABAAUAAAApABoAAAABAAUAAAApABkAAAABAAU
 tile_set = SubResource("TileSet_dp6yp")
 
 [node name="Foreground" type="TileMapLayer" parent="."]
+
+[node name="PlayerStartPos" type="Marker2D" parent="."]
+position = Vector2(256, 202)
