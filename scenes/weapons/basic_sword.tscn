@@ -1,16 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://dtd0gsdhcdx37"]
 
-[ext_resource type="Script" uid="uid://0215hvbc1bkl" path="res://scripts/weapons/basic_sword.gd" id="1_vggck"]
+[ext_resource type="Script" uid="uid://0215hvbc1bkl" path="res://scenes/weapons/basic_sword.gd" id="1_vggck"]
 [ext_resource type="Texture2D" uid="uid://cyxwr3p46lj0w" path="res://resourses/textures/weapons/swords/simpleSword.png" id="1_xo10d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eapll"]
-size = Vector2(16, 62)
+size = Vector2(10, 60)
 
 [node name="BasicSword" type="Area2D"]
 script = ExtResource("1_vggck")
 
 [node name="BasicSwordSprite" type="Sprite2D" parent="."]
+position = Vector2(29, 0)
+rotation = 1.5708
 texture = ExtResource("1_xo10d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(30, 0)
+rotation = 1.5708
 shape = SubResource("RectangleShape2D_eapll")
