@@ -41,9 +41,9 @@ folder_colors={
 
 [global_group]
 
-enemies="Any kind of enemies."
-players="Playable characters"
-weapons="Any kind of weapon or proyectile destinated to damage enemies."
+enemies="Cualquier tipo de enemigos."
+players="Personajes jugables."
+weapons="Cualquier tipo de arma o proyectil destinado a dañar enemigos."
 
 [input]
 
