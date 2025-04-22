@@ -23,7 +23,7 @@ func _ready() -> void:
 	# Añade el jugador a la escena y cambia su posición.
 	add_child(_player_instance)
 	$Player.position = $PlayerStartPos.position
-	# TODO: Instancia de enemigos, items y esa wea yatusabe
+	# TODO: Instancia de enemigos, items y esa wea yatusabe.
 
 
 ## Wmite [signal ArcadeLevel.level_ended] y elimina la escena actual del árbol de escenas.

@@ -28,7 +28,15 @@
 			"tasks": []
 		}
 	],
-	"tasks": [],
+	"tasks": [
+		{
+			"uuid": "c6ee24e4-6b67-4543-af70-e64fc6acaf45",
+			"title": "New task",
+			"description": "",
+			"category": "67049c55-2e09-43cb-a337-02c47e896692",
+			"steps": []
+		}
+	],
 	"layout": {
 		"columns": [
 			[

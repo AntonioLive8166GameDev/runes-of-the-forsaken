@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://e1jqbwru8k53"]
 
 [ext_resource type="PackedScene" uid="uid://db4qtrsxneyfy" path="res://scenes/player/player.tscn" id="1_a6juh"]
-[ext_resource type="PackedScene" uid="uid://dtd0gsdhcdx37" path="res://scenes/weapons/basic_sword.tscn" id="2_47v3h"]
+[ext_resource type="PackedScene" uid="uid://b4aaws6hqf22g" path="res://scenes/Enemies/simple_enemy.tscn" id="2_a6juh"]
 
 [node name="TestScene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_a6juh")]
 
-[node name="BasicSword" parent="Player" instance=ExtResource("2_47v3h")]
-position = Vector2(610, 317)
-scale = Vector2(5, 5)
+[node name="SimpleEnemy" parent="." instance=ExtResource("2_a6juh")]
+position = Vector2(943, 474)
