@@ -3,7 +3,7 @@ extends CharacterBody2D
 ## Clase diseñada para los personajes jugables.
 ##
 ## Incluye una función para controlar el movimiento y variables para sus estadísticas.
-## @experimental
+## @experimental: Aún faltan algunas estadísticas y métodos.
 
 @export_group("Estadísticas")
 @export var speed : int = 100
@@ -21,3 +21,6 @@ func motion() -> void:
 	velocity.x = GLOBAL.get_axis().x * speed
 	velocity.y = GLOBAL.get_axis().y * -speed
 	move_and_slide()
+
+
+# INFO: BasicSword fue añadido temporalmente como hijo, pero debería cambiarse esto al implementar más armas.

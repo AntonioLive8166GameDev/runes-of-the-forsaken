@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eapll"]
 size = Vector2(10, 60)
 
-[node name="BasicSword" type="Area2D"]
+[node name="BasicSword" type="Area2D" groups=["weapons"]]
 script = ExtResource("1_vggck")
 
 [node name="BasicSwordSprite" type="Sprite2D" parent="."]
@@ -18,3 +18,5 @@ texture = ExtResource("1_xo10d")
 position = Vector2(30, 0)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_eapll")
+
+[connection signal="area_entered" from="." to="." method="_on_enemy_entered"]
