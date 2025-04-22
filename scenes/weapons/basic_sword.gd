@@ -53,4 +53,5 @@ func _attack_finished() -> void:
 # Emite la señal "attack" si se está atacando para dañar al enemigo.
 func _on_enemy_entered(enemy: Area2D) -> void:
 	if enemy.is_in_group("enemies") and is_attacking:
+		# TODO: Programar multiplicador de daño con base en el atk del jugador y mejoras del arma.
 		emit_signal("attack", damage)
