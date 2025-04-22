@@ -2,7 +2,6 @@ extends Node2D
 
 # TODO: Make an automatic preload system based on file system and not manually colocations.
 ## Contiene las escenas de los niveles precargados. Sirven como referencia.
-
 @export var levels : Array[PackedScene] = [
 	preload("res://scenes/levels/test_level.tscn"),
 	preload("res://scenes/levels/test_level1.tscn"),
@@ -34,6 +33,6 @@ func select_random_level() -> void:
 	last_level.level_ended.connect(_on_arcade_level_level_ended)
 
 
-## Una señal proveniente del nivel seleccionado se cnonecta con esta función cuando éste finaliza.
+## Una señal proveniente del nivel en curso se cnonecta con esta función cuando éste finaliza.
 func _on_arcade_level_level_ended() -> void:
-	pass
+	pass # TODO: Decidir qué hacer cuando se acabe un nivel para programar esto xd.
