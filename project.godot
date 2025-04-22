@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Runes of the Forsaken"
+run/main_scene="uid://bxkfibaim0upy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +25,14 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/resizable=false
 window/stretch/mode="viewport"
+
+[file_customization]
+
+folder_colors={
+"res://resourses/": "red",
+"res://scenes/": "orange",
+"res://scripts/": "yellow"
+}
 
 [global_group]
 
