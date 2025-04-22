@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4aaws6hqf22g"]
+
+[ext_resource type="Script" uid="uid://enae544vi0sq" path="res://simple_enemy.gd" id="1_0e48y"]
+[ext_resource type="Texture2D" uid="uid://cklssqdwwm3gt" path="res://icon.svg" id="2_epypp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
+size = Vector2(72, 70)
+
+[node name="Simple Enemy" type="CharacterBody2D"]
+script = ExtResource("1_0e48y")
+metadata/_edit_group_ = true
+
+[node name="Enemy" type="Sprite2D" parent="."]
+position = Vector2(800, 523)
+scale = Vector2(0.597656, 0.570312)
+texture = ExtResource("2_epypp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(800, 523)
+shape = SubResource("RectangleShape2D_0hol4")
+one_way_collision_margin = 0.0
