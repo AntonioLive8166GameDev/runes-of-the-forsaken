@@ -28,7 +28,7 @@ func take_damage(damage : int):
 	# TODO: Programar disminución de daño recibido ante ataques (defensa).
 	hp -= damage
 	if hp <= 0:
-		die()
+		queue_free()
 
 
 func die():
