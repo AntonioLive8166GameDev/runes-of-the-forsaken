@@ -24,7 +24,9 @@
 		{
 			"uuid": "3372c1c1-a078-4eb8-aa93-99c6a13b85ac",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"02ae2de8-a01b-4231-972d-09a4e541fa13"
+			]
 		},
 		{
 			"uuid": "e4cbdf3c-115f-4d00-a5dd-43f2416f0b66",
@@ -64,6 +66,13 @@
 			"uuid": "11ac9092-73c6-47a7-a8f8-363522cb8483",
 			"title": "[BasicSword]  Programar multiplicador de daño.",
 			"description": "Con base en el atk básico del jugador y las mejoras del arma y eso.",
+			"category": "e83438e7-b690-4e0f-bd39-bd69864a8cb8",
+			"steps": []
+		},
+		{
+			"uuid": "02ae2de8-a01b-4231-972d-09a4e541fa13",
+			"title": "Programar la capacidad de recibir daño",
+			"description": "",
 			"category": "e83438e7-b690-4e0f-bd39-bd69864a8cb8",
 			"steps": []
 		}

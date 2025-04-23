@@ -14,6 +14,7 @@ config/name="Runes of the Forsaken"
 run/main_scene="uid://bxkfibaim0upy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+run/test=""
 
 [autoload]
 
@@ -44,6 +45,7 @@ folder_colors={
 enemies="Cualquier tipo de enemigos."
 players="Personajes jugables."
 weapons="Cualquier tipo de arma o proyectil destinado a dañar enemigos."
+enemy_projectiles="Proyectiles destinados a dañar al jugador."
 
 [input]
 
