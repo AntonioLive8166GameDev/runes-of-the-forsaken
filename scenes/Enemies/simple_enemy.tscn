@@ -4,14 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="2_epypp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(72, 70)
+size = Vector2(124, 124)
 
 [node name="SimpleEnemy" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_0e48y")
 metadata/_edit_group_ = true
 
 [node name="EnemySprite" type="Sprite2D" parent="."]
-scale = Vector2(0.597656, 0.570312)
 texture = ExtResource("2_epypp")
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]

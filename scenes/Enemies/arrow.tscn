@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://boph4i6g1ktb2"]
+
+[ext_resource type="Script" uid="uid://ja2d54s8g20f" path="res://scenes/Enemies/arrow.gd" id="1_a03gk"]
+[ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_akcpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a03gk"]
+
+[node name="Arrow" type="RigidBody2D" groups=["enemies"]]
+script = ExtResource("1_a03gk")
+speed = null
+
+[node name="ArrowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_akcpe")
+
+[node name="ArrowCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(5.08725, 5.08725)
+shape = SubResource("RectangleShape2D_a03gk")
+
+[connection signal="body_entered" from="." to="." method="_on_player_hit"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

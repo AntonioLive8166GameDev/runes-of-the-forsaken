@@ -4,6 +4,7 @@ extends RigidBody2D
 
 signal damage_player(amount)
 
+
 @export var atk : int = 20
 @export var speed : int = 200
 

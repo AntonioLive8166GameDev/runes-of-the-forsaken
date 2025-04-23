@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://beuqikw64v443"]
+
+[ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_b1pjh"]
+[ext_resource type="Script" path="res://scenes/Enemies/simple_enemy_3.gd" id="1_l7ahk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ahk"]
+size = Vector2(124, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r37a"]
+size = Vector2(136, 136)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7ahk"]
+radius = 241.267
+
+[node name="SimpleEnemy3" type="CharacterBody2D" groups=["enemies"]]
+script = ExtResource("1_l7ahk")
+max_health = 80
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("1_b1pjh")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_b1pjh")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l7ahk")
+one_way_collision_margin = 0.0
+
+[node name="DamageTrigger" type="Area2D" parent="." groups=["enemies"]]
+
+[node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]
+shape = SubResource("RectangleShape2D_6r37a")
+one_way_collision_margin = 0.0
+debug_color = Color(0.974492, 0, 0.426382, 0.42)
+
+[node name="PlayerMargin" type="Area2D" parent="."]
+
+[node name="MarginCollision" type="CollisionShape2D" parent="PlayerMargin"]
+scale = Vector2(1.05844, 1.05844)
+shape = SubResource("CircleShape2D_l7ahk")
+
+[connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_entered"]
+[connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_exited"]
