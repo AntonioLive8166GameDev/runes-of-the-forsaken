@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://db4qtrsxneyfy"]
+[gd_scene load_steps=6 format=3 uid="uid://db4qtrsxneyfy"]
 
 [ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_c8d3o"]
 [ext_resource type="Script" uid="uid://b41grhs8bat86" path="res://scenes/player/player.gd" id="1_nll68"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abm34"]
 size = Vector2(110, 110)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
 script = ExtResource("1_nll68")
@@ -15,7 +17,20 @@ speed = 500
 texture = ExtResource("1_c8d3o")
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
+scale = Vector2(1.13092, 1.13092)
 shape = SubResource("RectangleShape2D_abm34")
 
 [node name="BasicSword" parent="." instance=ExtResource("3_gmlin")]
 scale = Vector2(2.5, 2.5)
+
+[node name="DamageTrigger" type="Area2D" parent="."]
+
+[node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]
+scale = Vector2(4.68008, 4.68008)
+shape = SubResource("RectangleShape2D_gmlin")
+debug_color = Color(0.826122, 0, 0.408606, 0.42)
+
+[connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_area_entered"]
+[connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_area_exited"]
+[connection signal="body_entered" from="DamageTrigger" to="." method="_on_damage_trigger_body_entered"]
+[connection signal="body_exited" from="DamageTrigger" to="." method="_on_damage_trigger_body_exited"]
