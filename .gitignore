@@ -1,3 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+scenes/enemies/simple_enemy_3.gd
+scenes/enemies/simple_enemy_3.gd.uid
