@@ -20,6 +20,7 @@ run/test=""
 
 GLOBAL="*res://scripts/autoloads/global.gd"
 Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
+GlobalSounds="*res://scenes/globals/global_sounds.tscn"
 
 [display]
 
