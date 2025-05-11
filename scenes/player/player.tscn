@@ -35,6 +35,9 @@ debug_color = Color(0.826122, 0, 0.408606, 0.42)
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 
+[node name="PlayerSFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
+
 [connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_area_entered"]
 [connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_area_exited"]
 [connection signal="body_entered" from="DamageTrigger" to="." method="_on_damage_trigger_body_entered"]

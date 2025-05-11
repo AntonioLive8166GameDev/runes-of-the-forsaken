@@ -11,6 +11,7 @@ extends CharacterBody2D
 @export var defense : int = 100 ## Defensa o resistencia ante ataques recibidos.
 @export var atk : int = 50 ## Multiplicador de daño de ataque.
 @export var invulnerable : bool = false ## Si es [code]true[/code], puede recibir daño; de lo contrario, no.
+var is_alive : bool = true ## Si es [code]false[/code], no puede moverse y se vuelve invulnerable.
 
 
 func _process(_delta: float) -> void:
@@ -21,7 +22,8 @@ func _process(_delta: float) -> void:
 func motion() -> void:
 	velocity.x = GLOBAL.get_axis().x * speed
 	velocity.y = GLOBAL.get_axis().y * -speed
-	move_and_slide()
+	if is_alive:
+		move_and_slide()
 
 
 ## @experimental: Este método está incompleto.
@@ -30,6 +32,8 @@ func take_damage(damage : int):
 	# TODO: Programar disminución de daño recibido ante ataques (defensa).
 	if not invulnerable:
 		hp -= damage
+		$PlayerSFX.stream = preload("res://resourses/sfx/damage_received.wav")
+		$PlayerSFX.play()
 		print("Damage took, hp: ", hp)
 		if hp <= 0:
 			die()
@@ -40,7 +44,13 @@ func take_damage(damage : int):
 ## Deshabilita la colisión del jugador y ejecuta la animación de muerte para luego quitarlo del árbol de escenas.
 ## Finalmente llama a [method clase.game_over].
 func die():
-	# TODO: Programar la morision.
+	is_alive = false
+	$DamageTrigger.monitoring = false
+	$DamageTrigger.monitoring = true
+	# TODO: Programar la animación.
+	$PlayerSFX.stream = preload("res://resourses/sfx/game_over.wav")
+	$PlayerSFX.play()
+	await $PlayerSFX.finished #TODO: Use finished signal of the AnimationPlayer instead.
 	queue_free()
 
 
