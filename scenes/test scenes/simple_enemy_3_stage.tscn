@@ -1,12 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjdoaqc50ohbt"]
 
 [ext_resource type="PackedScene" uid="uid://db4qtrsxneyfy" path="res://scenes/player/player.tscn" id="1_wr2yg"]
-[ext_resource type="PackedScene" uid="uid://beuqikw64v443" path="res://scenes/Enemies/simple_enemy_3.tscn" id="2_xlpia"]
+[ext_resource type="PackedScene" uid="uid://6ge558x1diy1" path="res://scenes/enemies/simple_enemy_3.tscn" id="2_xlpia"]
 
 [node name="Enemy3Stage" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_wr2yg")]
 position = Vector2(155, 351)
+floor_constant_speed = true
+invulnerable = true
 
 [node name="SimpleEnemy3" parent="." instance=ExtResource("2_xlpia")]
 position = Vector2(863, 327)

@@ -8,8 +8,10 @@
 size = Vector2(110, 110)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gmlin"]
+size = Vector2(31.6234, 31.196)
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
+collision_mask = 6
 script = ExtResource("1_nll68")
 speed = 500
 
@@ -24,6 +26,7 @@ shape = SubResource("RectangleShape2D_abm34")
 scale = Vector2(2.5, 2.5)
 
 [node name="DamageTrigger" type="Area2D" parent="."]
+collision_mask = 6
 
 [node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]
 scale = Vector2(4.68008, 4.68008)
