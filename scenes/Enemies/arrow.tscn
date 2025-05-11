@@ -9,6 +9,7 @@
 collision_layer = 4
 collision_mask = 5
 script = ExtResource("1_a03gk")
+speed = 800
 
 [node name="ArrowSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_akcpe")

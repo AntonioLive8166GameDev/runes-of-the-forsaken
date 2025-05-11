@@ -16,7 +16,6 @@
 			"uuid": "2b6b4fdf-9363-4021-b2e3-d7ec8c1fd0b1",
 			"title": "Todo",
 			"tasks": [
-				"ed24316b-1340-4add-a3fc-0f0fdf2384a0",
 				"eb8a8fe1-fdd9-4464-a739-a8cf830c3b38",
 				"11ac9092-73c6-47a7-a8f8-363522cb8483"
 			]
@@ -24,7 +23,9 @@
 		{
 			"uuid": "3372c1c1-a078-4eb8-aa93-99c6a13b85ac",
 			"title": "Doing",
-			"tasks": []
+			"tasks": [
+				"ed24316b-1340-4add-a3fc-0f0fdf2384a0"
+			]
 		},
 		{
 			"uuid": "e4cbdf3c-115f-4d00-a5dd-43f2416f0b66",
@@ -43,7 +44,7 @@
 			"steps": [
 				{
 					"details": "Desactivar su colisión",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Reproducir animación de muerte",

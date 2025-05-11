@@ -63,3 +63,13 @@ func _on_option_button_item_selected(index: int) -> void:
 
 func _on_close_pressed() -> void:
 	hide()
+
+
+func _play_pressed_sfx(_toggled_on: bool) -> void:
+	GlobalSounds.get_node("SFX").stream = preload("res://resourses/sfx/selection.wav")
+	GlobalSounds.get_node("SFX").play()
+
+
+func _play_hover_sfx(_index: int) -> void:
+	GlobalSounds.get_node("SFX").stream = preload("res://resourses/sfx/confirm_selection.wav")
+	GlobalSounds.get_node("SFX").play()

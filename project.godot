@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Runes of the Forsaken"
 run/main_scene="uid://dpxs5ipxdxdmw"
+config/custom_user_dir_name="Arsevus/Runes of the Forsaken"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 run/test=""
