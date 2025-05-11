@@ -1,0 +1,35 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brty8f0s5nm4i"]
+
+[ext_resource type="Texture2D" uid="uid://3lhp72nst2al" path="res://resourses/textures/UI/button_pressed.png" id="1_g5dmv"]
+[ext_resource type="Texture2D" uid="uid://w0baalewad1d" path="res://resourses/textures/UI/button.png" id="2_1qqc7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oa1go"]
+texture = ExtResource("1_g5dmv")
+texture_margin_left = 11.0
+texture_margin_top = 7.0
+texture_margin_right = 12.0
+texture_margin_bottom = 5.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rtw2f"]
+texture = ExtResource("2_1qqc7")
+texture_margin_left = 11.0
+texture_margin_top = 7.0
+texture_margin_right = 12.0
+texture_margin_bottom = 5.0
+expand_margin_left = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[resource]
+Button/colors/font_color = Color(0.303652, 0.186343, 0.0520657, 1)
+Button/colors/font_disabled_color = Color(0.0689775, 0.0226209, 9.02452e-09, 0.5)
+Button/colors/font_hover_color = Color(0.498005, 0.333599, 9.62615e-08, 1)
+Button/colors/font_pressed_color = Color(0.975095, 0.442659, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_oa1go")
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxTexture_rtw2f")
+Button/styles/normal = SubResource("StyleBoxTexture_rtw2f")
+Button/styles/pressed = SubResource("StyleBoxTexture_oa1go")

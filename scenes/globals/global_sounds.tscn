@@ -6,4 +6,4 @@
 bus = &"SFX"
 
 [node name="BGmusic" type="AudioStreamPlayer" parent="."]
-bus = &"BGMusic"
+bus = &"Music"

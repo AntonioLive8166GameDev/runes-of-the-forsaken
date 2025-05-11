@@ -1,0 +1,65 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsjcvb7nhqvof"]
+
+[ext_resource type="Theme" uid="uid://brty8f0s5nm4i" path="res://resourses/themes/main_menu_theme.tres" id="1_5p8wc"]
+[ext_resource type="Script" uid="uid://bighwj5m70t83" path="res://scenes/settings.gd" id="2_r6d6q"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_5p8wc")
+script = ExtResource("2_r6d6q")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sound" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "settings.label.sound"
+
+[node name="Music" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "settings.chkbutton.music"
+
+[node name="SFX" type="CheckButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+text = "settings.chkbutton.sfx"
+
+[node name="Language" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "settings.label.language"
+
+[node name="LanguagePopup" type="OptionButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+item_count = 2
+popup/item_0/text = "settings.optbutton.item.spanish"
+popup/item_0/id = 0
+popup/item_1/text = "settings.optbutton.item.english"
+popup/item_1/id = 1
+
+[node name="Close" type="Button" parent="Panel/VBoxContainer"]
+layout_mode = 2
+text = "settings.button.close"
+
+[connection signal="toggled" from="Panel/VBoxContainer/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/SFX" to="." method="_on_sfx_toggled"]
+[connection signal="item_selected" from="Panel/VBoxContainer/LanguagePopup" to="." method="_on_option_button_item_selected"]
+[connection signal="pressed" from="Panel/VBoxContainer/Close" to="." method="_on_close_pressed"]
