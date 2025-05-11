@@ -11,40 +11,39 @@ config_version=5
 [application]
 
 config/name="Runes of the Forsaken"
-run/main_scene="uid://dpxs5ipxdxdmw"
+run/main_scene="uid://bxkfibaim0upy"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+run/test=""
 
 [autoload]
 
 GLOBAL="*res://scripts/autoloads/global.gd"
-Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/resizable=false
 window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/SignalVisualizer/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/kanban_tasks/plugin.cfg")
 
 [file_customization]
 
 folder_colors={
 "res://resourses/": "red",
 "res://scenes/": "orange",
-"res://scripts/": "yellow",
-"res://translations/": "green"
+"res://scripts/": "yellow"
 }
 
 [global_group]
 
-enemies="Any kind of enemies."
-players="Playable characters"
-weapons="Any kind of weapon or proyectile destinated to damage enemies."
+enemies="Cualquier tipo de enemigos."
+players="Personajes jugables."
+weapons="Cualquier tipo de arma o proyectil destinado a dañar enemigos."
+enemy_projectiles="Proyectiles destinados a dañar al jugador."
 
 [input]
 
@@ -73,10 +72,12 @@ left={
 ]
 }
 
-[internationalization]
+[layer_names]
 
-locale/translations=PackedStringArray("res://translations/ui_text.en.translation", "res://translations/ui_text.es.translation")
-locale/locale_filter_mode=0
+2d_physics/layer_1="Player"
+2d_physics/layer_2="Enemy"
+2d_physics/layer_3="Enemy proyectile"
+2d_physics/layer_4="Weapon"
 
 [rendering]
 

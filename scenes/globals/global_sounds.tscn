@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cxm1jlvyihlgb"]
+
+[node name="GlobalSounds" type="Node"]
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="BGmusic" type="AudioStreamPlayer" parent="."]
+bus = &"BGMusic"
