@@ -24,7 +24,7 @@ func _process(_delta: float) -> void:
 		direction = -Vector2(cos(angle), sin(angle))
 
 
-func take_damage(amount: int):
+func take_damage(amount: int) -> void:
 	current_health -= amount
 	print("El arquero recibió daño. Salud restante:", current_health)
 	
@@ -32,12 +32,12 @@ func take_damage(amount: int):
 		# TODO: Realizar animación (cuando haya assets xd).
 		die()
 
-func die():
+func die() -> void:
 	print("¡El arquero ha sido derrotado!")
 	queue_free()  # Elimina al enemigo de la escena.
 
 
-func shoot():
+func shoot() -> void:
 	var _arrow_instance = arrow.instantiate()
 	add_child(_arrow_instance)
 	#_arrow_instance.position = self.global_position

@@ -7,7 +7,7 @@ func _ready():
 	current_health = max_health
 
 
-func take_damage(amount: int):
+func take_damage(amount: int) -> void:
 	current_health -= amount
 	print("Enemigo recibió daño. Salud restante:", current_health)
 	
@@ -15,7 +15,7 @@ func take_damage(amount: int):
 		# TODO: Realizar animación (cuando haya assets xd).
 		die()
 
-func die():
+func die() -> void:
 	print("¡El enemigo ha sido derrotado!")
 	queue_free()  # Elimina al enemigo de la escena.
 

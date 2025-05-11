@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Runes of the Forsaken"
-run/main_scene="uid://bxkfibaim0upy"
+run/main_scene="uid://dpxs5ipxdxdmw"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 run/test=""
@@ -19,6 +19,8 @@ run/test=""
 [autoload]
 
 GLOBAL="*res://scripts/autoloads/global.gd"
+GlobalSounds="*res://scenes/globals/global_sounds.tscn"
+SETTINGS="*res://scripts/autoloads/settings.gd"
 
 [display]
 
@@ -71,6 +73,10 @@ left={
 , Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":0,"axis_value":-1.0,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/ui_text.en.translation", "res://translations/ui_text.es.translation")
 
 [layer_names]
 

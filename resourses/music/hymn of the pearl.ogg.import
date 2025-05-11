@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8vgdlr837iry"
+path="res://.godot/imported/hymn of the pearl.ogg-8bb82017093d1558cc049d172bd90b04.oggvorbisstr"
+
+[deps]
+
+source_file="res://resourses/music/hymn of the pearl.ogg"
+dest_files=["res://.godot/imported/hymn of the pearl.ogg-8bb82017093d1558cc049d172bd90b04.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
