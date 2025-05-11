@@ -1,13 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxm1jlvyihlgb"]
-
-[ext_resource type="AudioStream" uid="uid://b8vgdlr837iry" path="res://resourses/music/hymn of the pearl.ogg" id="1_2le4i"]
+[gd_scene format=3 uid="uid://cxm1jlvyihlgb"]
 
 [node name="GlobalSounds" type="Node"]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_2le4i")
 bus = &"SFX"
 
 [node name="BGmusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_2le4i")
 bus = &"Music"
