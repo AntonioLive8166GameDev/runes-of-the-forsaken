@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://6ge558x1diy1"]
+
+[ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_b1pjh"]
+[ext_resource type="Script" uid="uid://dp1fo3v67p1vm" path="res://scenes/enemies/simple_enemy_3.gd" id="1_l7ahk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ahk"]
+size = Vector2(124, 124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6r37a"]
+size = Vector2(136, 136)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l7ahk"]
+radius = 241.267
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6r37a"]
+radius = 598.719
+
+[node name="SimpleEnemy3" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_l7ahk")
+max_health = 80
+speed = 250
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(4, 4)
+texture = ExtResource("1_b1pjh")
+
+[node name="EnemySprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_b1pjh")
+
+[node name="EnemyCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l7ahk")
+one_way_collision_margin = 0.0
+
+[node name="DamageTrigger" type="Area2D" parent="." groups=["enemies"]]
+collision_layer = 2
+collision_mask = 9
+
+[node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]
+shape = SubResource("RectangleShape2D_6r37a")
+one_way_collision_margin = 0.0
+debug_color = Color(0.974492, 0, 0.426382, 0.42)
+
+[node name="PlayerMargin" type="Area2D" parent="."]
+
+[node name="MarginCollision" type="CollisionShape2D" parent="PlayerMargin"]
+scale = Vector2(1.05844, 1.05844)
+shape = SubResource("CircleShape2D_l7ahk")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_6r37a")
+debug_color = Color(0.59348, 0.00394018, 0.958673, 0.42)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_entered"]
+[connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_exited"]
+[connection signal="body_entered" from="PlayerMargin" to="." method="_on_player_margin_body_entered"]
+[connection signal="body_exited" from="PlayerMargin" to="." method="_on_player_margin_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]
+[connection signal="timeout" from="Cooldown" to="." method="shoot"]

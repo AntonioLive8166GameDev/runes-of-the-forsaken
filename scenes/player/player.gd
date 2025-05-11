@@ -30,6 +30,7 @@ func take_damage(damage : int):
 	# TODO: Programar disminución de daño recibido ante ataques (defensa).
 	if not invulnerable:
 		hp -= damage
+		print("Damage took, hp: ", hp)
 		if hp <= 0:
 			die()
 
@@ -51,6 +52,8 @@ func die():
 func _on_damage_trigger_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies") or body.is_in_group("enemy_projectiles") and not body.is_connected("damage_player", take_damage):
 		body.connect("damage_player", take_damage)
+		if body.is_connected("damage_player", take_damage):
+			print("conectao")
 
 
 ## En caso de que [param body] esté en el grupo [code]"enemies"[/code], desconectará [signal Enemy.damage_player] de [method Player.take_damage]
@@ -68,6 +71,8 @@ func _on_damage_trigger_body_exited(body: Node2D) -> void:
 func _on_damage_trigger_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemies") or area.is_in_group("enemy_projectiles") and not area.is_connected("damage_player", take_damage):
 		area.connect("damage_player", take_damage)
+		if area.is_connected("damage_player", take_damage):
+			print("conectao")
 
 
 ## En caso de que [param area] esté en el grupo [code]enemies[/code], desconectará [signal Enemy.damage_player] de [method Player.take_damage]
