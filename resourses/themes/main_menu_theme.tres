@@ -1,7 +1,8 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://brty8f0s5nm4i"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://brty8f0s5nm4i"]
 
 [ext_resource type="Texture2D" uid="uid://3lhp72nst2al" path="res://resourses/textures/UI/button_pressed.png" id="1_g5dmv"]
 [ext_resource type="Texture2D" uid="uid://w0baalewad1d" path="res://resourses/textures/UI/button.png" id="2_1qqc7"]
+[ext_resource type="FontFile" uid="uid://dvu1qu5iawci7" path="res://resourses/fonts/jancieni.ttf" id="3_1qqc7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oa1go"]
 texture = ExtResource("1_g5dmv")
@@ -24,6 +25,8 @@ expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
 [resource]
+default_font = ExtResource("3_1qqc7")
+default_font_size = 24
 Button/colors/font_color = Color(0.303652, 0.186343, 0.0520657, 1)
 Button/colors/font_disabled_color = Color(0.0689775, 0.0226209, 9.02452e-09, 0.5)
 Button/colors/font_hover_color = Color(0.498005, 0.333599, 9.62615e-08, 1)

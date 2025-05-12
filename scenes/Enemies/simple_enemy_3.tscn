@@ -105,11 +105,12 @@ radius = 113.473
 radius = 242.405
 
 [node name="SimpleEnemy3" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.75, 0.75)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_l7ahk")
 max_health = 80
-speed = 250
+speed = 125
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

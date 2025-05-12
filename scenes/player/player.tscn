@@ -11,9 +11,9 @@ size = Vector2(110, 110)
 size = Vector2(31.6234, 31.196)
 
 [node name="Player" type="CharacterBody2D" groups=["players"]]
-collision_mask = 6
+collision_mask = 22
 script = ExtResource("1_nll68")
-speed = 500
+speed = 300
 
 [node name="PlayerSprite(temp)" type="Sprite2D" parent="."]
 texture = ExtResource("1_c8d3o")
@@ -40,7 +40,6 @@ bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(2, 2)
-zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.5

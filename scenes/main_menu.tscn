@@ -32,7 +32,6 @@ grow_vertical = 2
 [node name="Play" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_ekxnf")
-disabled = true
 text = "main_menu.button.play"
 
 [node name="Settings" type="Button" parent="VBoxContainer"]
@@ -56,13 +55,13 @@ text = "main_menu.button.exit"
 layout_mode = 1
 
 [connection signal="focus_entered" from="VBoxContainer/Play" to="." method="_play_hover_sfx"]
-[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_play_pressed_sfx"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/Settings" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_play_pressed_sfx"]
 [connection signal="focus_entered" from="VBoxContainer/Credits" to="." method="_play_hover_sfx"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_play_pressed_sfx"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="focus_entered" from="VBoxContainer/Exit" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
