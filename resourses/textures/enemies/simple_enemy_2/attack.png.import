@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bt4v8rsqoffnx"
-path="res://.godot/imported/daño_enemigo_espada.png-880a4ff7496309c3307c25d34cd45826.ctex"
+uid="uid://d16whwjwbtjot"
+path="res://.godot/imported/attack.png-9d046d8bc6e0bd2d4e55fc5d8a66955b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resourses/textures/enemies/simple_enemy_2/daño_enemigo_espada.png"
-dest_files=["res://.godot/imported/daño_enemigo_espada.png-880a4ff7496309c3307c25d34cd45826.ctex"]
+source_file="res://resourses/textures/enemies/simple_enemy_2/attack.png"
+dest_files=["res://.godot/imported/attack.png-9d046d8bc6e0bd2d4e55fc5d8a66955b.ctex"]
 
 [params]
 

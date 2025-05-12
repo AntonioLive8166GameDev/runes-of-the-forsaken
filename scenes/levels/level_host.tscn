@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://b3iiq0ni23of5"]
+
+[node name="LevelHost" type="Node2D"]

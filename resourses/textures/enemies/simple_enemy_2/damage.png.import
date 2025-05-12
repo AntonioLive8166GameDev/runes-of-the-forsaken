@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d16whwjwbtjot"
-path="res://.godot/imported/golpe_enemigo_espada.png-e51d141b0e48ed91b9aaf1a92b5d2846.ctex"
+uid="uid://bt4v8rsqoffnx"
+path="res://.godot/imported/damage.png-29c1ffbc600ccdb5a59947d05ef19448.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://resourses/textures/enemies/simple_enemy_2/golpe_enemigo_espada.png"
-dest_files=["res://.godot/imported/golpe_enemigo_espada.png-e51d141b0e48ed91b9aaf1a92b5d2846.ctex"]
+source_file="res://resourses/textures/enemies/simple_enemy_2/damage.png"
+dest_files=["res://.godot/imported/damage.png-29c1ffbc600ccdb5a59947d05ef19448.ctex"]
 
 [params]
 
