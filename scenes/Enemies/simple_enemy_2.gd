@@ -21,7 +21,8 @@ func _process(_delta: float) -> void:
 		var direction = Vector2(cos(angle), sin(angle))
 		velocity = direction * speed
 		move_and_slide()
-		
+		$Sword_Area2D.look_at(_player.global_position)
+	
 	if _target != null and _can_attack:
 		$Sword_Area2D.emit_signal("damage_player", attack_damage)
 		print("Ya jala we :(")
@@ -80,6 +81,7 @@ func _on_damage_trigger_area_entered(weapon: Area2D) -> void:
 
 
 func _on_damage_trigger_area_exited(weapon: Area2D) -> void:
+	await get_tree().create_timer(.5).timeout
 	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
 	if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
 		weapon.disconnect("attack", take_damage);
