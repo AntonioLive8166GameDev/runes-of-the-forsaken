@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_abm34")
 [node name="BasicSword" parent="." instance=ExtResource("3_gmlin")]
 scale = Vector2(2.5, 2.5)
 
-[node name="DamageTrigger" type="Area2D" parent="."]
+[node name="DamageTrigger" type="Area2D" parent="." groups=["players"]]
 collision_mask = 6
 
 [node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]

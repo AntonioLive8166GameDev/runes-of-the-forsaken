@@ -29,10 +29,10 @@ func perform_attack() -> void:
 	# tween para el efecto visual (animación).
 	var tween = get_tree().create_tween()
 	# Primer tramo: gira 135° en 0.2 s (derecha).
-	tween.tween_property(self, "rotation", attack_rotation, 0.2)\
+	tween.tween_property(self, "rotation", attack_rotation, 0.1)\
 		 .set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	# Segundo tramo: vuelve a la rotación inicial en 0.2 s
-	tween.tween_property(self, "rotation", initial_rotation, 0.2)\
+	tween.tween_property(self, "rotation", initial_rotation, 0.1)\
 		 .set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
 	# Al terminar las dos fases, lanzamos la transición final (posición actual del puntero).
 	tween.connect("finished", Callable(self, "_on_attack_animation_finished"))
@@ -41,7 +41,7 @@ func _on_attack_animation_finished() -> void:
 	# Capturamos dónde está el mouse ahora y tween a esa rotación en 0.2 s.
 	var target_angle = (get_global_mouse_position() - global_position).angle()
 	var tween = get_tree().create_tween()
-	tween.tween_property(self, "rotation", target_angle, 0.2)\
+	tween.tween_property(self, "rotation", target_angle, 0.1)\
 		 .set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 	tween.connect("finished", Callable(self, "_attack_finished"))
 
