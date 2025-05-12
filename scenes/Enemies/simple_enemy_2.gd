@@ -1,0 +1,89 @@
+extends CharacterBody2D
+
+@export var max_health: int = 100
+@export var speed: int = 250
+@export var attack_damage: int = 20
+@export var attack_cooldown: float = 1.5 # En segundos
+
+
+var current_health: int
+var _player: Node2D = null
+var _can_attack: bool = true
+var _target: Node2D = null
+
+func _ready():
+	current_health = max_health
+
+func _process(_delta: float) -> void:
+	# Si el jugador está dentro del rango de detección, muévete hacia él.
+	if _player != null:
+		var angle = get_angle_to(_player.global_position)
+		var direction = Vector2(cos(angle), sin(angle))
+		velocity = direction * speed
+		move_and_slide()
+		$Sword_Area2D.look_at(_player.global_position)
+	
+	if _target != null and _can_attack:
+		$Sword_Area2D.emit_signal("damage_player", attack_damage)
+		print("Ya jala we :(")
+		_can_attack = false
+		$Cooldown.start()
+
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	print("El enemigo recibió daño. Vida restante:", current_health)
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	print("¡Enemigo muelto!")
+	queue_free()
+
+
+#region Ataque con espada (hitbox)
+# Cuando la espada del enemigo (otra Area2D) entra en contacto con el jugador.
+func _on_sword_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("players"):
+		_target = body
+#endregion
+
+
+func _on_sword_area_2d_body_exited(body: Node2D) -> void:
+	if body == _target:
+		_target = null
+
+
+# Cuando el jugador entra, lo sigue.
+func _on_detection_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("players"):
+		_player = body
+
+
+# Cuando el jugador se sale, deja de perseguirlo.
+#func _on_detection_area_2d_body_exited(body: Node2D) -> void:
+	#if body == _player:
+		#_player = null
+
+
+#region Cooldown
+# Cuando termina el temporizador de cooldown, se puede volver a atacar.
+func _on_cooldown_timeout() -> void:
+	_can_attack = true
+#endregion
+
+
+func _on_damage_trigger_area_entered(weapon: Area2D) -> void:
+	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún no está conectada.
+	if weapon.is_in_group("weapons") and not weapon.is_connected("attack", take_damage):
+		weapon.connect("attack", take_damage);
+		if weapon.is_connected("attack", take_damage):
+			print("signal \"attack\" connected to take_damage()")
+
+
+func _on_damage_trigger_area_exited(weapon: Area2D) -> void:
+	await get_tree().create_timer(.5).timeout
+	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
+	if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
+		weapon.disconnect("attack", take_damage);
+		if not weapon.is_connected("attack", take_damage):
+			print("signal \"attack\" disconnected from take_damage()")

@@ -20,7 +20,7 @@ func set_target_direction(direction: Vector2) -> void:
 
 
 ## Hits the player ant then is free
-func _on_player_hit(body: Node) -> void:
-	if body.is_in_group("players"):
+func _on_player_hit(area: Area2D) -> void:
+	if area.is_in_group("players"):
 		emit_signal("damage_player", atk)
 		queue_free()
