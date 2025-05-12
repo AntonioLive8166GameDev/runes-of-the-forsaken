@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://6ge558x1diy1"]
 
 [ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_b1pjh"]
-[ext_resource type="Script" uid="uid://dp1fo3v67p1vm" path="res://scenes/Enemies/simple_enemy_3.gd" id="1_l7ahk"]
+[ext_resource type="Script" uid="uid://dp1fo3v67p1vm" path="res://scenes/enemies/simple_enemy_3.gd" id="1_l7ahk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ahk"]
 size = Vector2(124, 124)
@@ -57,7 +57,6 @@ shape = SubResource("CircleShape2D_6r37a")
 debug_color = Color(0.59348, 0.00394018, 0.958673, 0.42)
 
 [node name="Cooldown" type="Timer" parent="."]
-wait_time = 2.0
 
 [connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_entered"]
 [connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_exited"]
