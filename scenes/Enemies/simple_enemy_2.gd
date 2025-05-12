@@ -21,7 +21,14 @@ func _process(_delta: float) -> void:
 		var direction = Vector2(cos(angle), sin(angle))
 		velocity = direction * speed
 		move_and_slide()
-		$Sword_Area2D.look_at(_player.global_position)
+		# Obtener el ángulo actual de la espada
+		var current_angle = $Sword_Area2D.rotation
+
+		# Calcular el ángulo hacia el jugador
+		var target_angle = ($Sword_Area2D.global_position.direction_to(_player.global_position)).angle()
+
+		# Interpolación suave del ángulo actual hacia el objetivo
+		$Sword_Area2D.rotation = lerp_angle(current_angle, target_angle, 0.05)
 	
 	if _target != null and _can_attack:
 		$Sword_Area2D.emit_signal("damage_player", attack_damage)
