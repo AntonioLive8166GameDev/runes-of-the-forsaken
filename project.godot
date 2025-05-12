@@ -87,6 +87,7 @@ locale/translations=PackedStringArray("res://translations/ui_text.en.translation
 2d_physics/layer_3="Enemy proyectile"
 2d_physics/layer_4="Weapon"
 2d_physics/layer_5="Walls"
+2d_physics/layer_6="Door"
 
 [rendering]
 

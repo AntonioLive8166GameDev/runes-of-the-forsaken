@@ -5,6 +5,7 @@ extends Node2D
 @export var levels : Array[PackedScene] = [
 	preload("res://scenes/levels/arcade_level_0.tscn")
 ]
+@export var lobby : PackedScene = preload("res://scenes/levels/arcade_lobby.tscn")
 ## Sirve como una copia de [u]levels[/u] para trabajar de manera segura.
 var _levels : Array[PackedScene] = levels.duplicate()
 
@@ -17,8 +18,15 @@ func _ready() -> void:
 	
 	# "Barajamos" los elementos de _levels para mejorar la aleatoriedad.
 	_levels.shuffle()
-	select_random_level()
+	go_to_lobby()
+	#get_child(0, false).connect("level_ended", _on_arcade_level_level_ended)
+	#get_child(0, false).connect("player_defeated", go_to_lobby)
 
+
+func go_to_lobby() -> void:
+	print("aca tambien")
+	var _lobby = lobby.instantiate()
+	add_child(_lobby)
 
 ## Selecciona e instancia una escena de las disponibles en [u]_levels[/u] para posteriormente agregarla al árbol de escenas.
 func select_random_level() -> void:

@@ -14,11 +14,13 @@ extends Node2D
 
 ## Señal emitida al llamar el método [method ArcadeLevel.end_level].
 signal level_ended
+signal player_defeated
 
 ## Guarda una instancia del jugador para su manejo.
 var _player_instance = preload("res://scenes/player/player.tscn").instantiate()
 var enemy_positions : Array[Node]
 var enemy : Array[PackedScene] = [
+	preload("res://scenes/enemies/simple_enemy_2.tscn"),
 	preload("res://scenes/enemies/simple_enemy_3.tscn")
 ]
 var spawn_range = 300
@@ -26,19 +28,22 @@ var _is_player_alive : bool = true
 
 
 func _ready() -> void:
-	enemy_positions = $EnemyStartPositions.get_children()
+	if has_node("EnemyStartPositions"):
+		enemy_positions = $EnemyStartPositions.get_children()
 	# Añade el jugador a la escena y cambia su posición.
 	add_child(_player_instance)
 	$Player.connect("dead_player", game_over)
 	$Player.scale = Vector2(0.25,0.25)
 	$Player.position = $PlayerStartPos.position
 	$Player.speed = 250
-	$Player.hp = 1000
+	$Player.hp = 200
 	# TODO: Instancia de enemigos, items y esa wea yatusabe.
 
 
 func _process(delta: float) -> void:
-	pass
+	if has_node("CanvasLayer/HP"):
+		$CanvasLayer/HP.text = "HP: " + str($Player.hp)
+
 
 func spawn_enemies() -> void:
 	if _is_player_alive:
@@ -51,8 +56,22 @@ func spawn_enemies() -> void:
 
 func game_over() -> void:
 	_is_player_alive = false
+	#emit_signal("player_defeated")
+	get_parent().go_to_lobby()
+	print("aca andamos")
+	queue_free()
 
 ## Emite [signal ArcadeLevel.level_ended] y elimina la escena actual del árbol de escenas.
 func end_level() -> void:
-	emit_signal("level_ended")
+	#emit_signal("level_ended")
+	get_parent()._on_arcade_level_level_ended()
 	queue_free()
+
+
+func _on_entrance_body_entered(body: Node2D) -> void:
+	if body.is_in_group("players"):
+		end_level()
+
+
+func _on_higher_difficulty_timeout() -> void:
+	$EnemySpawnCooldown.wait_time -= 0.1
