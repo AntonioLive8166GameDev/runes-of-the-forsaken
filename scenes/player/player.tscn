@@ -38,6 +38,15 @@ debug_color = Color(0.826122, 0, 0.408606, 0.42)
 [node name="PlayerSFX" type="AudioStreamPlayer2D" parent="."]
 bus = &"SFX"
 
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(2, 2)
+zoom = Vector2(1.5, 1.5)
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_top_margin = 0.5
+drag_right_margin = 0.5
+drag_bottom_margin = 0.5
+
 [connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_area_entered"]
 [connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_area_exited"]
 [connection signal="body_entered" from="DamageTrigger" to="." method="_on_damage_trigger_body_entered"]

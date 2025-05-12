@@ -1,19 +1,108 @@
-[gd_scene load_steps=7 format=3 uid="uid://6ge558x1diy1"]
+[gd_scene load_steps=19 format=3 uid="uid://6ge558x1diy1"]
 
-[ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_b1pjh"]
-[ext_resource type="Script" uid="uid://dp1fo3v67p1vm" path="res://scenes/Enemies/simple_enemy_3.gd" id="1_l7ahk"]
+[ext_resource type="Script" uid="uid://dp1fo3v67p1vm" path="res://scenes/enemies/simple_enemy_3.gd" id="1_l7ahk"]
+[ext_resource type="Texture2D" uid="uid://d2p4ojramfg6i" path="res://resourses/textures/enemies/archer_damaged.png" id="2_y3xma"]
+[ext_resource type="Texture2D" uid="uid://bs7e5c45llapv" path="res://resourses/textures/enemies/archer.png" id="3_kugc5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u882f"]
+atlas = ExtResource("2_y3xma")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6e4i"]
+atlas = ExtResource("2_y3xma")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcbfa"]
+atlas = ExtResource("2_y3xma")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28af1"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_de48w"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cvt7n"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3n6l"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ujaa"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulcs"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8efgt"]
+atlas = ExtResource("3_kugc5")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5tksp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u882f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6e4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcbfa")
+}],
+"loop": false,
+"name": &"damage",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28af1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_de48w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cvt7n")
+}],
+"loop": false,
+"name": &"recharging",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3n6l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ujaa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fulcs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8efgt")
+}],
+"loop": true,
+"name": &"shooting",
+"speed": 4.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l7ahk"]
-size = Vector2(124, 124)
+size = Vector2(40, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6r37a"]
-size = Vector2(136, 136)
+size = Vector2(58, 70)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7ahk"]
-radius = 241.267
+radius = 113.473
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6r37a"]
-radius = 598.719
+radius = 242.405
 
 [node name="SimpleEnemy3" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
@@ -23,13 +112,9 @@ max_health = 80
 speed = 250
 metadata/_edit_group_ = true
 
-[node name="Icon" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(4, 4)
-texture = ExtResource("1_b1pjh")
-
-[node name="EnemySprite" type="Sprite2D" parent="."]
-texture = ExtResource("1_b1pjh")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5tksp")
+animation = &"damage"
 
 [node name="EnemyCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_l7ahk")
@@ -42,21 +127,26 @@ collision_mask = 9
 [node name="TriggerCollision" type="CollisionShape2D" parent="DamageTrigger"]
 shape = SubResource("RectangleShape2D_6r37a")
 one_way_collision_margin = 0.0
-debug_color = Color(0.974492, 0, 0.426382, 0.42)
+debug_color = Color(0.972549, 0, 0.427451, 0.0823529)
 
 [node name="PlayerMargin" type="Area2D" parent="."]
 
 [node name="MarginCollision" type="CollisionShape2D" parent="PlayerMargin"]
 scale = Vector2(1.05844, 1.05844)
 shape = SubResource("CircleShape2D_l7ahk")
+debug_color = Color(0, 0.6, 0.701961, 0.172549)
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
 [node name="Area" type="CollisionShape2D" parent="DetectionArea"]
 shape = SubResource("CircleShape2D_6r37a")
-debug_color = Color(0.59348, 0.00394018, 0.958673, 0.42)
+debug_color = Color(0.592157, 0.00392157, 0.956863, 0.117647)
 
 [node name="Cooldown" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="SEnemy3SFX" type="AudioStreamPlayer2D" parent="."]
+bus = &"SFX"
 
 [connection signal="area_entered" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_entered"]
 [connection signal="area_exited" from="DamageTrigger" to="." method="_on_damage_trigger_weapon_exited"]
