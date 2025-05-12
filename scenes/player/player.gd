@@ -50,6 +50,7 @@ func die():
 	is_alive = false
 	$DamageTrigger.monitoring = false
 	$PlayerCollision.disabled = true
+	$BasicSword.position.x += 999999
 	# TODO: Programar la animación.
 	$PlayerSFX.stream = preload("res://resourses/sfx/game_over.wav")
 	$PlayerSFX.play()

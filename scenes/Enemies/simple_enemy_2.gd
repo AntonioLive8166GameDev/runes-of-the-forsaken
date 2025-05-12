@@ -80,8 +80,6 @@ func _on_damage_trigger_area_entered(weapon: Area2D) -> void:
 
 
 func _on_damage_trigger_area_exited(weapon: Area2D) -> void:
-	# Se espera un poco para aumentar un poco la vulnerabilidad.
-	await get_tree().create_timer(.5).timeout
 	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
 	if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
 		weapon.disconnect("attack", take_damage);
