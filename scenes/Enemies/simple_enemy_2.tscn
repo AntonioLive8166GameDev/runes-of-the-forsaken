@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi61aj358uhuq" path="res://icon.svg" id="1_cclp6"]
 [ext_resource type="Script" uid="uid://2j7mduwr4aph" path="res://scenes/enemies/simple_enemy_2.gd" id="1_qlxhu"]
-[ext_resource type="Script" path="res://scenes/enemies/sword_area_2d.gd" id="3_pj5gs"]
+[ext_resource type="Script" uid="uid://b7te65xtajc2t" path="res://scenes/enemies/sword_area_2d.gd" id="3_pj5gs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlxhu"]
 size = Vector2(128, 128)
@@ -17,8 +17,9 @@ radius = 150.0
 size = Vector2(136, 136)
 
 [node name="Simple_Enemy_2" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.25, 0.25)
 collision_layer = 2
-collision_mask = 9
+collision_mask = 25
 script = ExtResource("1_qlxhu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

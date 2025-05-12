@@ -17,14 +17,40 @@ signal level_ended
 
 ## Guarda una instancia del jugador para su manejo.
 var _player_instance = preload("res://scenes/player/player.tscn").instantiate()
+var enemy_positions : Array[Node]
+var enemy : Array[PackedScene] = [
+	preload("res://scenes/enemies/simple_enemy_3.tscn")
+]
+var spawn_range = 300
+var _is_player_alive : bool = true
 
 
 func _ready() -> void:
+	enemy_positions = $EnemyStartPositions.get_children()
 	# Añade el jugador a la escena y cambia su posición.
 	add_child(_player_instance)
+	$Player.connect("dead_player", game_over)
+	$Player.scale = Vector2(0.25,0.25)
 	$Player.position = $PlayerStartPos.position
+	$Player.speed = 250
+	$Player.hp = 1000
 	# TODO: Instancia de enemigos, items y esa wea yatusabe.
 
+
+func _process(delta: float) -> void:
+	pass
+
+func spawn_enemies() -> void:
+	if _is_player_alive:
+		for marker in enemy_positions:
+			if marker.position.distance_to($Player.position) <= spawn_range:
+				var enemy_instance = enemy[randi_range(0, enemy.size() - 1)].instantiate()
+				enemy_instance.position = marker.position
+				add_child(enemy_instance)
+
+
+func game_over() -> void:
+	_is_player_alive = false
 
 ## Emite [signal ArcadeLevel.level_ended] y elimina la escena actual del árbol de escenas.
 func end_level() -> void:

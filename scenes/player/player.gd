@@ -5,6 +5,8 @@ extends CharacterBody2D
 ## Incluye una función para controlar el movimiento y variables para sus estadísticas.
 ## @experimental
 
+signal dead_player
+
 @export_group("Estadísticas")
 @export var speed : int = 100 ## Velocidad del jugador.
 @export var hp : int = 100 ## Vida del jugador.
@@ -50,6 +52,7 @@ func die():
 	is_alive = false
 	$DamageTrigger.monitoring = false
 	$PlayerCollision.disabled = true
+	emit_signal("dead_player")
 	$BasicSword.position.x += 999999
 	# TODO: Programar la animación.
 	$PlayerSFX.stream = preload("res://resourses/sfx/game_over.wav")

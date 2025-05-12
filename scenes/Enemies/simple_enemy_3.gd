@@ -75,14 +75,14 @@ func _on_damage_trigger_weapon_entered(weapon: Area2D) -> void:
 
 
 # Cuando el arma salga del cuerpo, desconecta la señal para evitar recibir daño por bluetooth XD.
-func _on_damage_trigger_weapon_exited(weapon: Area2D) -> void:
-	# Se espera un poco para aumentar un poco la vulnerabilidad.
-	await get_tree().create_timer(.5).timeout
-	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
-	if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
-		weapon.disconnect("attack", take_damage);
-		if not weapon.is_connected("attack", take_damage):
-			print("signal \"attack\" disconnected from take_damage()")
+#func _on_damage_trigger_weapon_exited(weapon: Area2D) -> void:
+	## Se espera un poco para aumentar un poco la vulnerabilidad.
+	#await get_tree().create_timer(.5).timeout
+	## Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
+	#if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
+		#weapon.disconnect("attack", take_damage);
+		#if not weapon.is_connected("attack", take_damage):
+			#print("signal \"attack\" disconnected from take_damage()")
 
 
 func _on_player_margin_body_entered(body: Node2D) -> void:

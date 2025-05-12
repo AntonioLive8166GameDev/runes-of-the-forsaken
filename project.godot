@@ -26,8 +26,8 @@ Signal_Debugger="*res://addons/SignalVisualizer/Debugger/SignalDebugger.gd"
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/stretch/mode="canvas_items"
 
 [editor_plugins]
@@ -86,6 +86,7 @@ locale/translations=PackedStringArray("res://translations/ui_text.en.translation
 2d_physics/layer_2="Enemy"
 2d_physics/layer_3="Enemy proyectile"
 2d_physics/layer_4="Weapon"
+2d_physics/layer_5="Walls"
 
 [rendering]
 

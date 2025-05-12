@@ -3,9 +3,7 @@ extends Node2D
 # TODO: Make an automatic preload system based on file system and not manually colocations.
 ## Contiene las escenas de los niveles precargados. Sirven como referencia.
 @export var levels : Array[PackedScene] = [
-	preload("res://scenes/levels/test_level.tscn"),
-	preload("res://scenes/levels/test_level1.tscn"),
-	preload("res://scenes/levels/test_level2.tscn"),
+	preload("res://scenes/levels/arcade_level_0.tscn")
 ]
 ## Sirve como una copia de [u]levels[/u] para trabajar de manera segura.
 var _levels : Array[PackedScene] = levels.duplicate()
