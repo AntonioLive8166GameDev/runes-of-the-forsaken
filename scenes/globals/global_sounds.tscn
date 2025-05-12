@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cxm1jlvyihlgb"]
+[gd_scene load_steps=2 format=3 uid="uid://cxm1jlvyihlgb"]
+
+[ext_resource type="AudioStream" uid="uid://b1qticen62wmm" path="res://resourses/music/temp_bg_music.ogg" id="1_2le4i"]
 
 [node name="GlobalSounds" type="Node"]
 
@@ -6,4 +8,6 @@
 bus = &"SFX"
 
 [node name="BGmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2le4i")
+autoplay = true
 bus = &"Music"

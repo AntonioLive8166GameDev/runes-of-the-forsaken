@@ -75,3 +75,9 @@ func _on_entrance_body_entered(body: Node2D) -> void:
 
 func _on_higher_difficulty_timeout() -> void:
 	$EnemySpawnCooldown.wait_time -= 0.1
+
+
+func _on_main_menu_pressed() -> void:
+	GlobalSounds.get_node("SFX").stream = preload("res://resourses/sfx/selection.wav")
+	GlobalSounds.get_node("SFX").play()
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
