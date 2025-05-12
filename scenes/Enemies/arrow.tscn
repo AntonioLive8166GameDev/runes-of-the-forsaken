@@ -7,7 +7,6 @@
 
 [node name="Arrow" type="Area2D" groups=["enemy_projectiles"]]
 collision_layer = 4
-collision_mask = 5
 script = ExtResource("1_a03gk")
 speed = 800
 

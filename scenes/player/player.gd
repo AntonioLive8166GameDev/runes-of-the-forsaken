@@ -47,6 +47,7 @@ func die():
 	is_alive = false
 	$DamageTrigger.monitoring = false
 	$DamageTrigger.monitoring = true
+	
 	# TODO: Programar la animación.
 	$PlayerSFX.stream = preload("res://resourses/sfx/game_over.wav")
 	$PlayerSFX.play()

@@ -12,6 +12,11 @@ var _levels : Array[PackedScene] = levels.duplicate()
 
 
 func _ready() -> void:
+	#var level : int = 0
+	#while FileAccess.file_exists("res://scenes/levels/level_" + str(level) + ".tscn"):
+		#var path : String = "res://scenes/levels/level_{}.tscn".format(level)
+		#levels.append(preload(path))
+	
 	# "Barajamos" los elementos de _levels para mejorar la aleatoriedad.
 	_levels.shuffle()
 	select_random_level()
@@ -35,4 +40,4 @@ func select_random_level() -> void:
 
 ## Una señal proveniente del nivel en curso se cnonecta con esta función cuando éste finaliza.
 func _on_arcade_level_level_ended() -> void:
-	pass # TODO: Decidir qué hacer cuando se acabe un nivel para programar esto xd.
+	select_random_level()

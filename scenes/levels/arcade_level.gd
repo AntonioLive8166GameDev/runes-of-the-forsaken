@@ -26,7 +26,7 @@ func _ready() -> void:
 	# TODO: Instancia de enemigos, items y esa wea yatusabe.
 
 
-## Wmite [signal ArcadeLevel.level_ended] y elimina la escena actual del árbol de escenas.
+## Emite [signal ArcadeLevel.level_ended] y elimina la escena actual del árbol de escenas.
 func end_level() -> void:
 	emit_signal("level_ended")
 	queue_free()
