@@ -59,7 +59,17 @@ popup/item_1/id = 1
 layout_mode = 2
 text = "settings.button.close"
 
+[connection signal="focus_entered" from="Panel/VBoxContainer/Music" to="." method="_play_hover_sfx" binds= [0]]
 [connection signal="toggled" from="Panel/VBoxContainer/Music" to="." method="_on_music_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/Music" to="." method="_play_pressed_sfx"]
+[connection signal="focus_entered" from="Panel/VBoxContainer/SFX" to="." method="_play_hover_sfx" binds= [0]]
 [connection signal="toggled" from="Panel/VBoxContainer/SFX" to="." method="_on_sfx_toggled"]
+[connection signal="toggled" from="Panel/VBoxContainer/SFX" to="." method="_play_pressed_sfx"]
+[connection signal="focus_entered" from="Panel/VBoxContainer/LanguagePopup" to="." method="_play_hover_sfx" binds= [0]]
+[connection signal="item_focused" from="Panel/VBoxContainer/LanguagePopup" to="." method="_play_hover_sfx"]
 [connection signal="item_selected" from="Panel/VBoxContainer/LanguagePopup" to="." method="_on_option_button_item_selected"]
+[connection signal="item_selected" from="Panel/VBoxContainer/LanguagePopup" to="." method="_play_pressed_sfx"]
+[connection signal="pressed" from="Panel/VBoxContainer/LanguagePopup" to="." method="_play_pressed_sfx" binds= [false]]
+[connection signal="focus_entered" from="Panel/VBoxContainer/Close" to="." method="_play_hover_sfx" binds= [0]]
 [connection signal="pressed" from="Panel/VBoxContainer/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/Close" to="." method="_play_pressed_sfx" binds= [false]]

@@ -48,12 +48,21 @@ text = "main_menu.button.credits"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.956863, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
 text = "main_menu.button.exit"
 
 [node name="Settings" parent="." instance=ExtResource("3_bqqt6")]
 layout_mode = 1
 
+[connection signal="focus_entered" from="VBoxContainer/Play" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_play_pressed_sfx"]
+[connection signal="focus_entered" from="VBoxContainer/Settings" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_play_pressed_sfx"]
+[connection signal="focus_entered" from="VBoxContainer/Credits" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_play_pressed_sfx"]
+[connection signal="focus_entered" from="VBoxContainer/Exit" to="." method="_play_hover_sfx"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
