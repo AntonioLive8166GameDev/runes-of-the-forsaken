@@ -17,4 +17,4 @@ texture = ExtResource("1_akcpe")
 scale = Vector2(5.08725, 5.08725)
 shape = SubResource("RectangleShape2D_a03gk")
 
-[connection signal="body_entered" from="." to="." method="_on_player_hit"]
+[connection signal="area_entered" from="." to="." method="_on_player_hit"]

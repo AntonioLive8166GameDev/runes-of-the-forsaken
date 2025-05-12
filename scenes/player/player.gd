@@ -14,6 +14,9 @@ extends CharacterBody2D
 var is_alive : bool = true ## Si es [code]false[/code], no puede moverse y se vuelve invulnerable.
 
 
+func _ready() -> void:
+	pass
+
 func _process(_delta: float) -> void:
 	motion()
 
@@ -46,8 +49,8 @@ func take_damage(damage : int):
 func die():
 	is_alive = false
 	$DamageTrigger.monitoring = false
-	$DamageTrigger.monitoring = true
-	
+	$PlayerCollision.disabled = true
+	$BasicSword.position.x += 999999
 	# TODO: Programar la animación.
 	$PlayerSFX.stream = preload("res://resourses/sfx/game_over.wav")
 	$PlayerSFX.play()
