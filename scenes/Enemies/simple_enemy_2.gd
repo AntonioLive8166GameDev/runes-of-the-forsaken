@@ -13,11 +13,16 @@ var _target: Node2D = null
 
 func _ready():
 	current_health = max_health
+	$AnimatedSprite2D.play("walk")
 
 func _process(_delta: float) -> void:
 	# Si el jugador está dentro del rango de detección, muévete hacia él.
 	if _player != null:
 		var angle = get_angle_to(_player.global_position)
+		if rad_to_deg(angle) >= -80 and rad_to_deg(angle) <= 80:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 		var direction = Vector2(cos(angle), sin(angle))
 		velocity = direction * speed
 		move_and_slide()
@@ -32,17 +37,32 @@ func _process(_delta: float) -> void:
 	
 	if _target != null and _can_attack:
 		$Sword_Area2D.emit_signal("damage_player", attack_damage)
-		print("Ya jala we :(")
 		_can_attack = false
+		$AnimatedSprite2D.play("attack")
+		await $AnimatedSprite2D.animation_finished
+		$AnimatedSprite2D.play("walk")
+		print("Ya jala we :(")
 		$Cooldown.start()
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
+	$AnimatedSprite2D.play("damage")
+	$SEnemy2SFX.stream = preload("res://resourses/sfx/enemy_hit.wav")
+	$SEnemy2SFX.play()
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.play("walk")
 	print("El enemigo recibió daño. Vida restante:", current_health)
 	if current_health <= 0:
 		die()
 
 func die() -> void:
+	$EnemyCollision.disabled = true
+	$Sword_Area2D.monitoring = false
+	$DetectionArea2D.monitoring = false
+	$DamageTrigger.monitoring = false
+	$SEnemy2SFX.stream = preload("res://resourses/sfx/enemy_killed.wav")
+	$SEnemy2SFX.play()
+	await $SEnemy2SFX.finished
 	print("¡Enemigo muelto!")
 	queue_free()
 
@@ -87,10 +107,10 @@ func _on_damage_trigger_area_entered(weapon: Area2D) -> void:
 			print("signal \"attack\" connected to take_damage()")
 
 
-func _on_damage_trigger_area_exited(weapon: Area2D) -> void:
-	await get_tree().create_timer(.5).timeout
-	# Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
-	if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
-		weapon.disconnect("attack", take_damage);
-		if not weapon.is_connected("attack", take_damage):
-			print("signal \"attack\" disconnected from take_damage()")
+#func _on_damage_trigger_area_exited(weapon: Area2D) -> void:
+	#await get_tree().create_timer(.5).timeout
+	## Verifica si el objeto es efectivamente un arma o proyectil y si la señal aún está conectada.
+	#if weapon.is_in_group("weapons") and weapon.is_connected("attack", take_damage):
+		#weapon.disconnect("attack", take_damage);
+		#if not weapon.is_connected("attack", take_damage):
+			#print("signal \"attack\" disconnected from take_damage()")
