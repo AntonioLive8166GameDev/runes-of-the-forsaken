@@ -10,6 +10,7 @@ var _player: Node2D = null
 var arrow: PackedScene = preload("res://scenes/enemies/arrow.tscn")
 func _ready():
 	current_health = max_health
+	$AnimatedSprite2D.play("recharging")
 
 
 func _process(_delta: float) -> void:
@@ -21,11 +22,18 @@ func _process(_delta: float) -> void:
 	
 	if _target != null:
 		var angle = get_angle_to(_target.global_position)
+		if rad_to_deg(angle) >= -80 and rad_to_deg(angle) <= 80:
+			$AnimatedSprite2D.flip_h = false
+		else:
+			$AnimatedSprite2D.flip_h = true
 		direction = -Vector2(cos(angle), sin(angle))
 
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
+	$AnimatedSprite2D.play("damage")
+	$SEnemy3SFX.stream = preload("res://resourses/sfx/enemy_hit.wav")
+	$SEnemy3SFX.play()
 	print("El arquero recibió daño. Salud restante:", current_health)
 	
 	if current_health <= 0:
@@ -33,7 +41,14 @@ func take_damage(amount: int) -> void:
 		die()
 
 func die() -> void:
+	$EnemyCollision.disabled = true
+	$DamageTrigger.monitoring = false
+	$PlayerMargin.monitoring = false
+	$DetectionArea.monitoring = false
+	$SEnemy3SFX.stream = preload("res://resourses/sfx/enemy_killed.wav")
+	$SEnemy3SFX.play()
 	print("¡El arquero ha sido derrotado!")
+	await $SEnemy3SFX.finished
 	queue_free()  # Elimina al enemigo de la escena.
 
 
@@ -42,6 +57,12 @@ func shoot() -> void:
 	add_child(_arrow_instance)
 	#_arrow_instance.position = self.global_position
 	_arrow_instance.set_target_direction(direction)
+	$AnimatedSprite2D.animation = "shooting"
+	$AnimatedSprite2D.frame = 1
+	await get_tree().create_timer(.5).timeout
+	$AnimatedSprite2D.play("recharging")
+	await $AnimatedSprite2D.animation_finished
+	$AnimatedSprite2D.play("recharging")
 
 
 # Cuando el enemigo es atacado, conecta la señal "attack" con take_damage().
