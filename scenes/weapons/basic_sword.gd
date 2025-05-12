@@ -2,7 +2,7 @@ extends Area2D
 
 signal attack(damage)
 
-@export var damage: int = 20
+@export var damage: int = 25
 
 # Variable que indica si se está atacando o no. (Inicia en falso).
 var is_attacking: bool = false
