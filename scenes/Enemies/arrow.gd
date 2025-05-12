@@ -10,9 +10,12 @@ signal damage_player(amount)
 var target_direction : Vector2 = Vector2.ZERO
 
 
+func _ready() -> void:
+	look_at(target_direction)
+
+
 func _process(delta: float) -> void:
 	position += speed  * target_direction * delta
-
 
 ## Needs to be called from the parent node to stablish where te arrow will go.
 func set_target_direction(direction: Vector2) -> void:
